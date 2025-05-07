@@ -1,0 +1,184 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f7fc;
+}
+
+.App {
+  padding: 20px;
+  max-width: 1200px; /* Maximum width for large screens */
+  margin: 0 auto;
+  width: 100%; /* Ensure it takes full width */
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Filter Bar, Search Bar, and Pagination */
+.filter-bar,
+.search-bar,
+.pagination {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.filter-bar select,
+.search-bar input {
+  padding: 10px;
+  margin-right: 10px;
+  flex: 1 1 auto; /* Make inputs flexible and ensure they occupy available space */
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.ticket-list table {
+  width: 100%; /* Ensure table takes full width */
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.ticket-list th,
+.ticket-list td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.ticket-list th {
+  background-color: #f8f8f8;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .filter-bar,
+  .search-bar,
+  .pagination {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-bar select,
+  .search-bar input {
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .ticket-list table {
+    font-size: 14px;
+  }
+
+  .ticket-list th,
+  .ticket-list td {
+    padding: 10px;
+  }
+
+  .pagination {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .filter-bar button {
+    width: 100%;
+  }
+
+  .ticket-list table {
+    font-size: 12px;
+  }
+
+  .ticket-list th,
+  .ticket-list td {
+    padding: 8px;
+  }
+
+  .filter-bar,
+  .search-bar {
+    margin-bottom: 25px; /* Increased margin for stacked layout */
+  }
+
+  /* Stacked table layout for very small screens */
+  .ticket-list table thead {
+    display: none;
+  }
+
+  .ticket-list table tr {
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .ticket-list table td {
+    display: block;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border: none;
+  }
+
+  .ticket-list table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 0;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  /* Add data-label attributes to your <td> elements in React! */
+  .ticket-list table td:nth-of-type(1):before {
+    content: "Ticket ID";
+  }
+
+  .ticket-list table td:nth-of-type(2):before {
+    content: "Title";
+  }
+
+  .ticket-list table td:nth-of-type(3):before {
+    content: "Client";
+  }
+
+  .ticket-list table td:nth-of-type(4):before {
+    content: "Status";
+  }
+}
